@@ -7,9 +7,37 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 62.5%; //1 rem = 10px;
+  
+    // siempre las mas grandes antes que las más chicas:
+    @include respond(big-desktop) {
+        font-size: 75%;  // 1rem = 12px
+    }
+
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1rem = 9px
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%; // 1rem = 8px
+    }
+
+    // @include respond(phone) {
+    //     font-size: 30%; // 1rem = 4.8px
+    // }
+
 }
 
 body {
     box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-land) {
+        padding: 0; 
+    }
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
 }
